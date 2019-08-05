@@ -10,6 +10,18 @@ var exp = require('express'); //server
 
 const appServer = exp();       //creating an instance of a server
 
+appServer.get("/",(req,res)=>{
+    res.sendFile(__dirname+"/src/views/home.html"); //specify directory
+})
+
+appServer.get("/emp",(req,res)=>{
+    res.sendFile(__dirname+"/src/views/employee.html");
+})
+
+
+appServer.get("/prd",(req,res)=>{
+    res.sendFile(__dirname+"/src/views/product.html");
+})
 
 
 /* appServer.get("/",(req,res)=>{      //GET method
@@ -25,7 +37,7 @@ appServer.get("/books",(req,res)=>{    //specifying path
     res.send("Book id: " + req.params.bid);
 }) */
 
-appServer.get("/books/poems",(req,res)=>{    //specifying subcategory
+/* appServer.get("/books/poems",(req,res)=>{    //specifying subcategory
     res.send("<html><head></head><body><h1>Poems</h1></body></html>");
     //res.send("Malayalam Poems")  //=>cannot set headers after they're sent
 })
@@ -60,15 +72,15 @@ appServer.get("/ab(cd)?e",(req,res)=>{         //will accept abe, abcde
 
 appServer.get(/a/,(req,res)=>{         //will accept anything with "a" in it
     res.send("Hi");
-})
+}) */
 
-appServer.get(/.*fly$/,(req,res)=>{         //will accept anything that ends with fly
+/* appServer.get(/.*fly$/,(req,res)=>{         //will accept anything that ends with fly
     res.send("fly");
-})
+}) */
 
-appServer.get(/.*fly.*/,(req,res)=>{         
-    res.send("fly anywhere");
-})
+//appServer.get(/.*fly.*/,(req,res)=>{         
+//    res.send("fly anywhere");
+//})
 
 appServer.listen(4200,()=>{        //server should listen; mention port number
     console.log("Listening");
