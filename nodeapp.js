@@ -18,9 +18,28 @@ appServer.get("/emp",(req,res)=>{
     res.sendFile(__dirname+"/src/views/employee.html");
 })
 
+appServer.get("/emp/pemp",(req,res)=>{
+    res.sendFile(__dirname+"/src/views/pemp.html");
+})
+
+appServer.get("/emp/pemp/:eid",(req,res)=>{
+    res.send(req.params.eid+ "is selected");
+})
+
+appServer.get("/emp/demp",(req,res)=>{
+    res.sendFile(__dirname+"/src/views/demp.html");
+})
 
 appServer.get("/prd",(req,res)=>{
     res.sendFile(__dirname+"/src/views/product.html");
+})
+
+appServer.get("/prd/wsp",(req,res)=>{
+    res.sendFile(__dirname+"/src/views/wholesale.html");
+})
+
+appServer.get("/prd/rp",(req,res)=>{
+    res.sendFile(__dirname+"/src/views/retail.html");
 })
 
 
